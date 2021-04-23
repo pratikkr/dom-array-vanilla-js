@@ -30,6 +30,7 @@ addUser.addEventListener("click", async () => {
     user.email
   );
   appState.push(classUser);
+  console.log(appState);
 
   domRenderer(appState);
 });
@@ -37,7 +38,7 @@ addUser.addEventListener("click", async () => {
 const domRenderer = (stateArr) => {
   userList.innerHTML = null;
   stateArr.forEach((userObj) => {
-    userList.innerHTML = `<div>
+    userList.innerHTML += `<div>
     Name: ${userObj.title} ${userObj.name}
     <ol>
     <li>${userObj.gender}</li>
@@ -47,19 +48,17 @@ const domRenderer = (stateArr) => {
   });
 };
 
-searchInput.addEventListener("keyup", (e) => {
-  function searchEventHandler(e) {
-    console.log(e, searchInput.value);
-  }
-  const filteredAppState = appState.filter(
+searchInput.addEventListener("keyup", searchEventHandler);
+
+function searchEventHandler(e) {
+  const filterAppState = appState.filter(
     (user) =>
       user.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
       user.gender.toLowerCase().includes(searchInput.value.toLowerCase()) ||
       user.email.toLowerCase().includes(searchInput.value.toLowerCase())
   );
-
-  domRenderer(filteredAppState);
-});
+  domRenderer(filterAppState);
+}
 
 dscSortBtn.addEventListener("click", () => {
   const appStateCopy = [...appState];

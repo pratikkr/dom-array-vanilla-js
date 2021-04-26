@@ -71,9 +71,9 @@ body {
   width: 100%;
   z-index: -1;
 }
-#userlist::after {
+/* #userlist::after {
   background-image: linear-gradient(0deg, #ffcf70 0%, #ffae3d 97%);
-}
+} */
 #userlist:hover {
   animation-name: hoverPop;
   animation-duration: 0.4s;

@@ -38,12 +38,12 @@ addUser.addEventListener("click", async () => {
 const domRenderer = (stateArr) => {
   userList.innerHTML = null;
   stateArr.forEach((userObj) => {
-    userList.innerHTML += `<div>
-    Name: ${userObj.title} ${userObj.name}
-    <ol>
-    <li>${userObj.gender}</li>
-    <li>${userObj.email}</li>
-    </ol>
+    userList.innerHTML += `<div class="card" id="userlist">
+    <ul style="list-style-type: none;">
+    <li>Name: ${userObj.title} ${userObj.name}</li>
+    <li>Gender: ${userObj.gender}</li>
+    <li>Email: ${userObj.email}</li>
+    </ul>
     </div>`;
   });
 };
